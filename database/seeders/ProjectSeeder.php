@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 
 // Models
 use App\Models\Project;
+use App\Models\Type;
 
 // Helpers
 use Faker\Generator as Faker;
@@ -25,12 +26,15 @@ class ProjectSeeder extends Seeder
 
             $title = $faker->unique()->sentence(4);
 
+            $typeId = Type::inRandomOrder()->first()->id;
+
             Project::create([
 
                 'title' => $title,
                 'slug' => Str::slug($title),
                 'description' => $faker->paragraph(),
                 'tags' => $faker->randomElement(['Laravel', 'Vue', 'React', 'Angular', 'Tailwind']),
+                'type_id' => $typeId,
 
             ]);
 

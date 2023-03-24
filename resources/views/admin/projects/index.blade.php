@@ -28,6 +28,7 @@
                         <th scope="col">Titolo</th>
                         <th scope="col">Descrizione</th>
                         <th scope="col">Tags</th>
+                        <th scope="col">Tipo</th>
                         <th scope="col"></th>
                       </tr>
                     </thead>
@@ -38,8 +39,19 @@
                         <tr>
                             <th class="col-1 align-middle">{{ $project->id }}</th>
                             <td class="col-2 align-middle">{{ $project->title }}</td>
-                            <td class="col-6 align-middle">{{ $project->description }}</td>
+                            <td class="col-5 align-middle">{{ $project->description }}</td>
                             <td class="col-1 align-middle">{{ $project->tags }}</td>
+
+                            @if ($project->type)
+
+                                <td class="col-2 align-middle">{{ $project->type->name }}</td>
+                                
+                            @else
+
+                                <td class="col-2 align-middle">Nessuno</td>
+
+                            @endif
+                                
                             <td class="col-2 align-middle">
                                 
                                 <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-primary">Visualizza</a>

@@ -24,7 +24,18 @@
 
                     <p>{{ $project->description }}</p>
 
-                    <p>{{ $project->tags }}</p>
+                    <p><b>Tags:</b> {{ $project->tags }}</p>
+
+                    @if ($project->type)
+                        
+                        <p><b>Tipo:</b> {{ $project->type->name }}</p>
+
+                    @else
+
+                        <p><b>Tipo:</b> Nessuno</p>
+                        
+                    @endif
+
 
                     <div>
 

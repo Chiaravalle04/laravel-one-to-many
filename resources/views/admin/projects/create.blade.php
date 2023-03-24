@@ -52,6 +52,17 @@
                             placeholder="Inserisci il framework..."
                         >
                     </div>
+
+                    <div class="mb-3">
+                        <label for="type_id" class="form-label">Tipo di progetto</label>                     
+                        <select class="form-select" name="type_id"  aria-label="Default select example">
+                            <option value="">Nessuno</option>
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id }}" {{ old('type_id') == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <div class="mb-3">
                         <label for="image" class="form-label">
                             Immagine progetto
